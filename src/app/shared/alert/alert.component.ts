@@ -11,6 +11,6 @@ export class AlertComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.message = 'Hell HelloWorld'
+    this.message = 'HelloWorld';
   }
 }
