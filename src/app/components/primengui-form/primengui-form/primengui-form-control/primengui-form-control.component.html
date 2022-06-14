@@ -1,6 +1,10 @@
-<div class="dtui-form-control" [formGroup]="formGroup" [ngClass]="classMap">
+<div
+  class="primengui-form-control"
+  [formGroup]="formGroup"
+  [ngClass]="classMap"
+>
   <label
-    class="dtui-form-control-label"
+    class="primengui-form-control-label"
     [style.width]="labelWidth"
     [hidden]="control.hiddenLabel"
     class="{{ control.labelClass }}"
@@ -11,7 +15,7 @@
       tooltipPosition="top"
       class="pi pi-question-circle"
     ></i>
-    <span *ngIf="control.required" class="dtui-form-control-required"
+    <span *ngIf="control.required" class="primengui-form-control-required"
       >*</span
     ></label
   >
@@ -60,12 +64,7 @@
         (blur)="control.blurFn ? control.blurFn() : blurFn()"
       />
     </ng-container>
-    <ng-container *ngSwitchCase="'inputArrayCmd'">
-      <dtui-input-array
-        [formControlName]="control.key"
-        [labelWidth]="control.labelWidth"
-      ></dtui-input-array>
-    </ng-container>
+
     <ng-container *ngSwitchCase="'inputNumber'">
       <input
         *ngIf="control.disabled"
@@ -149,17 +148,6 @@
       [placeholder]="control.placeholder"
       [disabled]="control.disabled"
     ></p-dropdown>
-    <dtui-select
-      *ngSwitchCase="'select'"
-      [options]="control.options"
-      [formControlName]="control.key"
-      (ngModelChange)="control.change && control.change($event)"
-      (clearChange)="control.clearChange && control.clearChange($event)"
-      [placeholder]="control.placeholder"
-      [disabled]="control.disabled"
-      [hidden]="control.hidden"
-      [showClear]="control.showClear"
-    ></dtui-select>
 
     <button
       *ngSwitchCase="'button'"
@@ -192,15 +180,6 @@
       [formControlName]="control.key"
       [dateFormat]="control.dateFormat"
     ></p-calendar>
-
-    <dtui-datetime
-      *ngSwitchCase="'datetime'"
-      [minDate]="control.minDate"
-      [formControlName]="control.key"
-      [disabled]="control.disabled"
-      [placeholder]="control.placeholder"
-      (ngModelChange)="control.change && control.change($event)"
-    ></dtui-datetime>
 
     <div *ngSwitchCase="'inputGroup'" class="ui-inputgroup flex">
       <input
@@ -243,12 +222,7 @@
       [disabled]="control.disabled"
     >
     </p-inputSwitch>
-    <dtui-checkbox-group
-      *ngSwitchCase="'checkboxGroup'"
-      [formControlName]="control.key"
-      [options]="control.options"
-      [name]="control.key"
-    ></dtui-checkbox-group>
+
     <p-chips
       *ngSwitchCase="'chips'"
       [formControlName]="control.key"
