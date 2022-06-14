@@ -1,0 +1,316 @@
+<div class="dtui-form-control" [formGroup]="formGroup" [ngClass]="classMap">
+  <label
+    class="dtui-form-control-label"
+    [style.width]="labelWidth"
+    [hidden]="control.hiddenLabel"
+    class="{{ control.labelClass }}"
+    >{{ control.label }}
+    <i
+      *ngIf="control.question"
+      pTooltip="{{ control.question }}"
+      tooltipPosition="top"
+      class="pi pi-question-circle"
+    ></i>
+    <span *ngIf="control.required" class="dtui-form-control-required"
+      >*</span
+    ></label
+  >
+  <ng-container [ngSwitch]="control.type">
+    <ng-container *ngSwitchCase="'inputText'">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        (blur)="control.blurFn ? control.blurFn() : blurFn()"
+      />
+    </ng-container>
+    <ng-container *ngSwitchCase="'inputArray'">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        (blur)="control.blurFn ? control.blurFn() : blurFn()"
+      />
+    </ng-container>
+    <ng-container *ngSwitchCase="'inputArrayCmd'">
+      <dtui-input-array
+        [formControlName]="control.key"
+        [labelWidth]="control.labelWidth"
+      ></dtui-input-array>
+    </ng-container>
+    <ng-container *ngSwitchCase="'inputNumber'">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        (blur)="
+          control.blurFn ? control.blurNumberFn() : blurNumberFn(control.key)
+        "
+      />
+    </ng-container>
+    <ng-container *ngSwitchCase="'inputNumberFD'">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d.]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d.]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        (blur)="control.blurFdFn ? control.blurFdFn() : blurFdFn(control.key)"
+      />
+    </ng-container>
+    <ng-container *ngSwitchCase="'inputDecimal'">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="number"
+        onKeypress="return (/[\d.]/.test(String.fromCharCode(event.keyCode)))"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        [hidden]="control.hidden"
+        [required]="control.required"
+        (blur)="control.blurFdFn ? control.blurFdFn() : blurFdFn(control.key)"
+      />
+    </ng-container>
+
+    <p-dropdown
+      *ngSwitchCase="'dropdown'"
+      [options]="control.options"
+      [formControlName]="control.key"
+      (ngModelChange)="control.change && control.change($event)"
+      [placeholder]="control.placeholder"
+      [disabled]="control.disabled"
+    ></p-dropdown>
+    <dtui-select
+      *ngSwitchCase="'select'"
+      [options]="control.options"
+      [formControlName]="control.key"
+      (ngModelChange)="control.change && control.change($event)"
+      (clearChange)="control.clearChange && control.clearChange($event)"
+      [placeholder]="control.placeholder"
+      [disabled]="control.disabled"
+      [hidden]="control.hidden"
+      [showClear]="control.showClear"
+    ></dtui-select>
+
+    <button
+      *ngSwitchCase="'button'"
+      pButton
+      [label]="control.label"
+      (click)="control.click && control.click($event)"
+      [disabled]="control.disabled"
+    ></button>
+    <ng-container *ngSwitchCase="'inputTextArea'">
+      <textarea
+        *ngIf="control.disabled"
+        pInputTextarea
+        [style.height.px]="control.height ? control.height : 100"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+        disabled
+      ></textarea>
+      <textarea
+        *ngIf="!control.disabled"
+        pInputTextarea
+        [style.height.px]="control.height ? control.height : 100"
+        [formControlName]="control.key"
+        [placeholder]="control.placeholder"
+      ></textarea>
+    </ng-container>
+    <p-calendar
+      *ngSwitchCase="'calendar'"
+      [minDate]="control.minDate"
+      [locale]="calendarCN"
+      [formControlName]="control.key"
+      [dateFormat]="control.dateFormat"
+    ></p-calendar>
+
+    <dtui-datetime
+      *ngSwitchCase="'datetime'"
+      [minDate]="control.minDate"
+      [formControlName]="control.key"
+      [disabled]="control.disabled"
+      [placeholder]="control.placeholder"
+      (ngModelChange)="control.change && control.change($event)"
+    ></dtui-datetime>
+
+    <div *ngSwitchCase="'inputGroup'" class="ui-inputgroup flex">
+      <input
+        *ngIf="control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [attr.placeholder]="control.placeholder"
+        disabled
+      />
+      <input
+        *ngIf="!control.disabled"
+        pInputText
+        type="text"
+        [formControlName]="control.key"
+        [attr.placeholder]="control.placeholder"
+      />
+      <button
+        pButton
+        type="button"
+        icon="pi pi-{{ control.icon }}"
+        (click)="control.iconClick && control.iconClick($event)"
+        [disabled]="control.disabled"
+      ></button>
+    </div>
+    <p-autoComplete
+      *ngSwitchCase="'autoComplete'"
+      [formControlName]="control.key"
+      [placeholder]="control.placeholder"
+      [suggestions]="control.suggestions"
+      (completeMethod)="
+        control.completeMethod && control.completeMethod($event)
+      "
+    >
+    </p-autoComplete>
+    <p-inputSwitch
+      *ngSwitchCase="'inputSwitch'"
+      styleClass="mt-3"
+      [formControlName]="control.key"
+      [disabled]="control.disabled"
+    >
+    </p-inputSwitch>
+    <dtui-checkbox-group
+      *ngSwitchCase="'checkboxGroup'"
+      [formControlName]="control.key"
+      [options]="control.options"
+      [name]="control.key"
+    ></dtui-checkbox-group>
+    <p-chips
+      *ngSwitchCase="'chips'"
+      [formControlName]="control.key"
+      [placeholder]="control.placeholder"
+    ></p-chips>
+    <p-colorPicker
+      *ngSwitchCase="'colorPicker'"
+      [formControlName]="control.key"
+      [format]="control.format ? control.format : 'hex'"
+    ></p-colorPicker>
+    <p-editor
+      *ngSwitchCase="'editor'"
+      [formControlName]="control.key"
+    ></p-editor>
+    <p-listbox
+      *ngSwitchCase="'listbox'"
+      [formControlName]="control.key"
+      [options]="control.options"
+    ></p-listbox>
+    <p-inputMask
+      *ngSwitchCase="'inputMask'"
+      [formControlName]="control.key"
+      [mask]="control.mask"
+      [placeholder]="control.placeholder"
+    ></p-inputMask>
+    <ng-container *ngSwitchCase="'fileUpload'">
+      <p-fileUpload
+        class="fildUploadWidth"
+        name="myfile[]"
+        chooseLabel="选择图片"
+        [showUploadButton]="false"
+        [showCancelButton]="false"
+        (onSelect)="onSelect($event, control.key)"
+        accept="image/*"
+        maxFileSize="1000000"
+        invalidFileSizeMessageSummary=""
+        invalidFileSizeMessageDetail="文件应该小于1MB"
+        invalidFileTypeMessageSummary=""
+        invalidFileTypeMessageDetail="只允许上传图片"
+      >
+        <ng-template pTemplate="content">
+          <button
+            *ngIf="getImgSrc(control.key)"
+            class="deleteButton"
+            pButton
+            label="删除"
+            icon="pi pi-times"
+            (click)="onClear(control.key)"
+          ></button>
+          <img
+            [src]="getImgSrc(control.key)"
+            id="changeImg"
+            [ngStyle]="{ width: control.width, height: control.height }"
+          />
+        </ng-template>
+      </p-fileUpload>
+    </ng-container>
+    <img
+      *ngSwitchCase="'image'"
+      [hidden]="!getImgSrc(control.key)"
+      [src]="getImgSrc(control.key)"
+      [ngStyle]="{ width: control.width, height: control.height }"
+    />
+  </ng-container>
+</div>

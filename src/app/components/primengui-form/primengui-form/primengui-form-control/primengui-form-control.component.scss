@@ -1,0 +1,116 @@
+.primengui-form-control {
+  display: flex;
+  align-items: flex-start;
+  word-break: break-all;
+
+  &-required {
+    color: rgb(255, 0, 0);
+  }
+
+  &-label {
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+    padding-right: 5px;
+    height: 34px;
+
+    > i {
+      margin: 0 3px;
+      color: #8b8b8b;
+      font-size: 12px;
+    }
+  }
+
+  > input,
+  > textarea,
+  > p-dropdown,
+  > .ui-inputgroup,
+  > .ui-inputgroup input,
+  > p-autocomplete,
+  > p-calendar,
+  > primengui-checkbox-group,
+  > p-chips,
+  > p-editor,
+  > p-listbox,
+  > p-inputMask,
+  > input {
+    line-height: 21px;
+    background: transparent;
+  }
+
+  .ui-inputgroup {
+    input {
+      width: 0;
+      line-height: 21px;
+      background: transparent;
+    }
+  }
+
+  > p-dropdown {
+    .ui-dropdown {
+      width: 100%;
+    }
+  }
+
+  > p-autocomplete,
+  > p-calendar {
+    span,
+    input {
+      width: 100%;
+    }
+  }
+
+  > primengui-checkbox-group,
+  .ui-chips > ul.ui-inputtext,
+  .ui-listbox {
+    width: 100%;
+  }
+
+  .ui-inputtext:enabled:hover:not(.ui-state-error),
+  .ui-dropdown:not(.ui-state-disabled):hover,
+  .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {
+    border-color: #0595e0;
+  }
+
+  .ui-button:enabled:focus,
+  .ui-chkbox .ui-chkbox-box.ui-state-focus {
+    box-shadow: none;
+  }
+
+  &-button {
+    label {
+      visibility: hidden;
+    }
+  }
+
+  &-inputtextarea,
+  &-checkboxgroup,
+  &-editor,
+  &-listbox,
+  &-inputmulti,
+  &-img,
+  &-astyit {
+    align-items: flex-start;
+
+    > label {
+      line-height: 36px;
+    }
+  }
+
+  &-checkboxgroup {
+    margin: -3px 0;
+
+    label {
+      padding: 3px 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.result-label {
+  height: auto;
+  writing-mode: tb-rl;
+  background-color: rgba(3, 129, 194, 0.2);
+  padding: 10px 0;
+  border-radius: 10%;
+}
