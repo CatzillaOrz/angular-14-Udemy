@@ -59,3 +59,5 @@ export type PrimenguiFormControlType =
   | 'empty'
   | 'inputArrayCmd'
   | 'tableInput';
+  export type PrimenguiFormTheme = 'light' | 'dark';
+  export type PrimenguiFormGroupType = 'accordion' | 'tabs';

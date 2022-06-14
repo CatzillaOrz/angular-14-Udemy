@@ -20,6 +20,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TooltipModule } from 'primeng/tooltip';
 import { ChipsModule } from 'primeng/chips';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { PrimenguiFormComponent } from './primengui-form/primengui-form.component';
 
 const modules = [
   ButtonModule,
@@ -40,6 +41,9 @@ const modules = [
   MultiSelectModule,
   TooltipModule,
   FileUploadModule,
+
+  //form
+  PrimenguiFormComponent,
 ];
 
 @NgModule({

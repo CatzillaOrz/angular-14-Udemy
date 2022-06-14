@@ -1,0 +1,96 @@
+<div class="primengui-form" [formGroup]="formGroup" [ngClass]="classMap">
+  <ng-container [ngSwitch]="isGroup">
+    <ng-container *ngSwitchCase="true">
+      <ng-container
+        *ngTemplateOutlet="groupTemp; context: { groupControls: controls }"
+      ></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="false">
+      <ng-container
+        *ngTemplateOutlet="controlsTemp; context: { list: controls }"
+      ></ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-content></ng-content>
+</div>
+
+<ng-template #groupTemp let-groupControls="groupControls">
+  <ng-container [ngSwitch]="group">
+    <ng-container *ngSwitchCase="'tabs'">
+      <p-tabView
+        [activeIndex]="index"
+        (onChange)="ptabviewChange($event, groupControls)"
+      >
+        <p-tabPanel
+          [header]="groupControl.label"
+          *ngFor="let groupControl of groupControls; let i = index"
+          [selected]="i === 0"
+          [disabled]="groupControl.disabled ? true : false"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              controlsTemp;
+              context: {
+                list: groupControl.controls,
+                list_two: groupControl.controls_two
+              }
+            "
+          >
+          </ng-container>
+        </p-tabPanel>
+      </p-tabView>
+    </ng-container>
+    <ng-container *ngSwitchCase="'accordion'">
+      <p-accordion>
+        <p-accordionTab
+          [header]="groupControl.label"
+          *ngFor="let groupControl of groupControls"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              controlsTemp;
+              context: {
+                list: groupControl.controls,
+                list_two: groupControl.controls_two
+              }
+            "
+          >
+          </ng-container>
+        </p-accordionTab>
+      </p-accordion>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #controlsTemp let-list="list" let-listtwo="list_two">
+  <div [ngClass]="{ grid: list, 'col-6': listtwo }">
+    <div
+      *ngFor="let item of list"
+      class="col-{{ item.layout ? item.layout : layout }}"
+      [hidden]="item.hidden"
+    >
+      <primengui-form-control
+        [formGroup]="formGroup"
+        [control]="item"
+        [labelWidth]="labelWidth"
+        [srcAddress]="srcAddress"
+      >
+      </primengui-form-control>
+    </div>
+  </div>
+  <div *ngIf="listtwo && listtwo.length > 0" class="col-offset-7">
+    <div
+      *ngFor="let item of listtwo"
+      class="col-{{ item.layout ? item.layout : layout }}"
+      [hidden]="item.hidden"
+    >
+      <primengui-form-control
+        [formGroup]="formGroup"
+        [control]="item"
+        [labelWidth]="'30px'"
+        [srcAddress]="srcAddress"
+      >
+      </primengui-form-control>
+    </div>
+  </div>
+</ng-template>
