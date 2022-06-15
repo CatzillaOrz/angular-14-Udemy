@@ -31,8 +31,7 @@
             *ngTemplateOutlet="
               controlsTemp;
               context: {
-                list: groupControl.controls,
-                list_two: groupControl.controls_two
+                list: groupControl.controls
               }
             "
           >
@@ -50,8 +49,7 @@
             *ngTemplateOutlet="
               controlsTemp;
               context: {
-                list: groupControl.controls,
-                list_two: groupControl.controls_two
+                list: groupControl.controls
               }
             "
           >
@@ -62,8 +60,8 @@
   </ng-container>
 </ng-template>
 
-<ng-template #controlsTemp let-list="list" let-listtwo="list_two">
-  <div [ngClass]="{ grid: list, 'col-6': listtwo }">
+<ng-template #controlsTemp let-list="list">
+  <div [ngClass]="{ grid: list }">
     <div
       *ngFor="let item of list"
       class="col-{{ item.layout ? item.layout : layout }}"
@@ -73,20 +71,6 @@
         [formGroup]="formGroup"
         [control]="item"
         [labelWidth]="labelWidth"
-      >
-      </app-primengui-form-control>
-    </div>
-  </div>
-  <div *ngIf="listtwo && listtwo.length > 0" class="col-offset-6">
-    <div
-      *ngFor="let item of listtwo"
-      class="col-{{ item.layout ? item.layout : layout }}"
-      [hidden]="item.hidden"
-    >
-      <app-primengui-form-control
-        [formGroup]="formGroup"
-        [control]="item"
-        [labelWidth]="'30px'"
       >
       </app-primengui-form-control>
     </div>
