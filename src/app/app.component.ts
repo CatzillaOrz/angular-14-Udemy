@@ -1,4 +1,5 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, VERSION, ViewChild } from '@angular/core';
+import { PrimenguiFormComponent } from './components/primengui-form/primengui-form/primengui-form.component';
 
 @Component({
   selector: 'my-app',
@@ -7,6 +8,15 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
+  rawData = '';
+
+  @ViewChild('opt', { static: false }) opt: PrimenguiFormComponent;
+  @ViewChild('opts', { static: false }) opts: PrimenguiFormComponent;
+
+  getRawData() {
+    console.log(this.opt.formGroup.getRawValue());
+    this.rawData = JSON.stringify(this.opts.formGroup.getRawValue(), null, '  ');
+  }
 
   optFilesPropFormData = [
     {
@@ -47,11 +57,11 @@ export class AppComponent {
           options: [
             { label: '选项1', value: 'xh1' },
             { label: '选项2', value: 'xh2' },
-            { label: '选项3', value: 'xh3' }
+            { label: '选项3', value: 'xh3' },
           ],
           change: (value: any) => {
             console.log(value);
-          }
+          },
         },
         { key: 'result', label: '多行文本', type: 'inputTextArea' },
         {
@@ -61,7 +71,7 @@ export class AppComponent {
           click: () => {
             console.log('debugging click');
             // console.log(this.form.formGroup.value);
-          }
+          },
         },
         {
           key: 'numbers',
@@ -70,7 +80,7 @@ export class AppComponent {
           icon: 'map-marker',
           iconClick: (event: Event) => {
             console.log(event);
-          }
+          },
         },
         {
           key: 'autocomplete',
@@ -81,17 +91,17 @@ export class AppComponent {
           completeMethod: (event) => {
             const list = ['xianghao1', 'xianghao2', 'xianghao3'];
             // this.form.formControls['autocomplete'].suggestions = list.filter((x) => x.includes(event.query));
-          }
+          },
         },
         {
           key: 'datatime',
           label: '日期选择',
-          type: 'calendar'
+          type: 'calendar',
         },
         {
           key: 'enable',
           label: '启用',
-          type: 'inputSwitch'
+          type: 'inputSwitch',
         },
         {
           key: 'checkboxGroup',
@@ -100,23 +110,23 @@ export class AppComponent {
           options: [
             { label: '选项1', value: 'xh1' },
             { label: '选项2', value: 'xh2' },
-            { label: '选项3', value: 'xh3' }
-          ]
+            { label: '选项3', value: 'xh3' },
+          ],
         },
         {
           key: 'chips',
           label: '多值输入',
-          type: 'chips'
+          type: 'chips',
         },
         {
           key: 'colorPicker',
           label: '颜色选择',
-          type: 'colorPicker'
+          type: 'colorPicker',
         },
         {
           key: 'editor',
           label: '文本编辑',
-          type: 'editor'
+          type: 'editor',
         },
         {
           key: 'listbox',
@@ -125,23 +135,23 @@ export class AppComponent {
           options: [
             { label: '选项1', value: 'xx1' },
             { label: '选项2', value: 'xx2' },
-            { label: '选项3', value: 'xx3' }
-          ]
+            { label: '选项3', value: 'xx3' },
+          ],
         },
         {
           key: 'inputMask',
           label: '输入格式化',
           type: 'inputMask',
-          mask: '99-999999'
-        }
-      ]
+          mask: '99-999999',
+        },
+      ],
     },
     {
       label: '属性',
       controls: [
         { key: 'longitude', label: '经度', type: 'inputText' },
-        { key: 'latitude', label: '纬度', type: 'inputText' }
-      ]
+        { key: 'latitude', label: '纬度', type: 'inputText' },
+      ],
     },
     {
       label: '命令',
@@ -152,11 +162,11 @@ export class AppComponent {
           type: 'dropdown',
           options: [
             { label: '命令1', value: 'ml1' },
-            { label: '命令2', value: 'ml2' }
+            { label: '命令2', value: 'ml2' },
           ],
           change: (value: any) => {
             console.log(value);
-          }
+          },
         },
         { key: 'params', label: '命令参数', type: 'inputText' },
         {
@@ -165,10 +175,10 @@ export class AppComponent {
           type: 'button',
           click: () => {
             console.log('debugging click');
-          }
+          },
         },
-        { key: 'result', label: '返回数据', type: 'inputTextArea' }
-      ]
-    }
-  ]
+        { key: 'result', label: '返回数据', type: 'inputTextArea' },
+      ],
+    },
+  ];
 }
