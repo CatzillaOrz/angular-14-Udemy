@@ -27,6 +27,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { PrimenguiFormComponent } from './primengui-form/primengui-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimenguiFormControlComponent } from './primengui-form/primengui-form-control/primengui-form-control.component';
+import { MessageService } from 'primeng/api';
 
 const MODULES = [
   ButtonModule,
@@ -58,5 +59,6 @@ const COMPONENTS = [PrimenguiFormComponent, PrimenguiFormControlComponent];
   imports: [CommonModule, FormsModule, ReactiveFormsModule, ...MODULES],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
+  providers: [MessageService],
 })
 export class PrnguiFormModule {}

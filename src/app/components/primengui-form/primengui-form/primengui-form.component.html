@@ -69,13 +69,13 @@
       class="col-{{ item.layout ? item.layout : layout }}"
       [hidden]="item.hidden"
     >
-      <primengui-form-control
+      <app-primengui-form-control
         [formGroup]="formGroup"
         [control]="item"
         [labelWidth]="labelWidth"
         [srcAddress]="srcAddress"
       >
-      </primengui-form-control>
+      </app-primengui-form-control>
     </div>
   </div>
   <div *ngIf="listtwo && listtwo.length > 0" class="col-offset-7">
@@ -84,13 +84,13 @@
       class="col-{{ item.layout ? item.layout : layout }}"
       [hidden]="item.hidden"
     >
-      <primengui-form-control
+      <app-primengui-form-control
         [formGroup]="formGroup"
         [control]="item"
         [labelWidth]="'30px'"
         [srcAddress]="srcAddress"
       >
-      </primengui-form-control>
+      </app-primengui-form-control>
     </div>
   </div>
 </ng-template>

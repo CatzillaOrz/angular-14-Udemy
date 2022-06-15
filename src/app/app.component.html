@@ -3,8 +3,13 @@
 <p>Start editing to see some magic happen :) aa</p>
 <p-button pRipple type="button" label="Primary"></p-button>
 
-<app-primengui-form
-  [controls]="optFilesPropFormData"
-  labelWidth="15%"
-  labelAlign="right"
-></app-primengui-form>
+<div class="grid">
+  <div class="col-12">
+    <app-primengui-form
+    #opt
+      [controls]="optFilesPropFormData"
+      labelWidth="15%"
+      labelAlign="right"
+    ></app-primengui-form>
+  </div>
+</div>
