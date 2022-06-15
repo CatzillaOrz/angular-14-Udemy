@@ -11,19 +11,24 @@ export class AppComponent {
   rawData = '';
 
   @ViewChild('opt', { static: false }) opt: PrimenguiFormComponent;
-  @ViewChild('opts', { static: false }) opts: PrimenguiFormComponent;
+  @ViewChild('propForm', { static: false }) propForm: PrimenguiFormComponent;
 
   getRawData() {
     console.log(this.opt.formGroup.getRawValue());
-    this.rawData = JSON.stringify(this.opts.formGroup.getRawValue(), null, '  ');
+    this.rawData = JSON.stringify(
+      this.propForm.formGroup.getRawValue(),
+      null,
+      '  '
+    );
   }
 
   optFilesPropFormData = [
     {
       key: 'additional-files',
-      label: '附加文件',
+      label: 'Number',
       layout: '12',
-      type: 'inputNumber',
+      type: 'inputText',
+      inputType: 'number',
       required: true,
       value: 0,
     },
@@ -47,7 +52,7 @@ export class AppComponent {
 
   optSpecFormData = [
     {
-      label: '基础数据',
+      label: '测试1',
       controls: [
         { key: 'num', label: '输入框', type: 'inputText' },
         {
@@ -139,17 +144,17 @@ export class AppComponent {
           type: 'inputMask',
           mask: '99-999999',
         },
-      ]
+      ],
     },
     {
-      label: '属性',
+      label: '测试',
       controls: [
-        { key: 'longitude', label: '经度', type: 'inputText' },
-        { key: 'latitude', label: '纬度', type: 'inputText' },
-      ]
+        { key: 'longitude', label: '付款', type: 'inputText' },
+        { key: 'latitude', label: '首款', type: 'inputText' },
+      ],
     },
     {
-      label: '命令',
+      label: '测试3',
       controls: [
         {
           key: 'command',
@@ -176,4 +181,140 @@ export class AppComponent {
       ],
     },
   ];
+
+  setDisabled(keys: string[], value = true) {
+    for (let key of keys) {
+      // this.propForm.formControls[key].disabled = value;
+    }
+  }
+
+  setSelectOptions(tabKey: string, key: string, options: any[]) {
+    // const tab = this.propFormData.find((x) => x.key == tabKey);
+    // if (tab) {
+    //   const select = tab.controls.find((x) => x.key == key);
+    //   if (select) {
+    //     select.options = options;
+    //   }
+    // }
+  }
+
+  setFormDisabled(...tabKeys: string[]) {
+    let keys = [];
+    for (let tabKey of tabKeys) {
+      // let tab = this.propFormData.find((x) => x.key == tabKey);
+      // if (tab) keys.push(...tab.controls.map((x) => x.key));
+    }
+    this.setDisabled(keys);
+  }
+
+  setLeftSelectOptions(tabKey: string, key: string, options: any[], def?: any) {
+    // const tab = this.queryFormData.find((x) => x.key == tabKey);
+    // if (tab) {
+    //   const select = (tab.config as Array<any>).find((x) => x.value == key);
+    //   if (select) {
+    //     select.options = options;
+    //     if (def) {
+    //       let defItem = options.find((x) => x.value === def);
+    //       if (defItem) this.queryCard.formGroup.patchValue({ [key]: def });
+    //     }
+    //   }
+    // }
+  }
+
+  /* 
+  
+
+  createDynamicControl(data: { attributes: Attribute[]; features: Attribute[] }) {
+    this.dynamicInvalid = [];
+    // this.createControls({ attributes: data.attributes, features: data.features });
+    this.createControls({ attributes: data.attributes });
+    if (this.propForm.formGroup) this.propForm.setFormGroup();
+  }
+
+  createControls(controls: { [tabKey: string]: Attribute[] }) {
+    if (!controls) return;
+    for (let key in controls) {
+      let attrs = [];
+      let data = controls[key];
+      if (data) {
+        data.forEach((attribute) => {
+          attrs = [...attrs, this.createControl(attribute)];
+          if (attribute.required) this.dynamicInvalid.push(attribute.name);
+        });
+      }
+      const tab = this.propFormData.find((x) => x.key === key);
+      if (tab) {
+        this.removeControls(tab.controls);
+        tab.controls = attrs;
+      }
+    }
+  }
+
+  removeControls(controls: PrimenguiFormControl[]) {
+    for (let control of controls) {
+      delete this.propForm.formControls[control.key];
+      this.propForm.formGroup.removeControl(control.key);
+    }
+  }
+
+  createControl(attr: Attribute) {
+    let value = '';
+    if (this.type === 'update' && Object.keys(this.formValue).includes(attr.name)) {
+      value = this.formValue[attr.name];
+    }
+    if (attr.name === 'thingTenant') {
+      return {
+        key: attr.name,
+        label: attr.displayName,
+        type: 'select',
+        value: value,
+        options: this.tenants,
+        required: attr.required,
+        disabled: this.notAddUpdateAuth
+      };
+    }
+    switch (attr.type) {
+      case 'text':
+        return {
+          key: attr.name,
+          label: attr.displayName,
+          type: 'inputText',
+          required: attr.required,
+          value: value,
+          disabled: this.notAddUpdateAuth
+        };
+      case 'timestamp':
+        if (isNumber(value)) value = format(new Date(value), 'yyyy-MM-dd HH:mm:ss');
+        return {
+          key: attr.name,
+          label: attr.displayName,
+          type: 'datetime',
+          required: attr.required,
+          value: value,
+          disabled: this.notAddUpdateAuth
+        };
+      case 'number':
+      case 'integer':
+        return {
+          key: attr.name,
+          label: attr.displayName,
+          type: 'inputText',
+          inputType: 'number',
+          required: attr.required,
+          value: value,
+          disabled: this.notAddUpdateAuth
+        };
+      case 'boolean':
+        return {
+          key: attr.name,
+          label: attr.displayName,
+          type: 'inputSwitch',
+          value: value,
+          disabled: this.notAddUpdateAuth
+        };
+    }
+  }
+
+  
+  */
 }
