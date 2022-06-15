@@ -14,7 +14,7 @@ import { PrimenguiFormControl, PrimenguiFormGroup, PrimenguiFormGroupType, Prime
 @Component({
   selector: 'app-primengui-form',
   templateUrl: './primengui-form.component.html',
-  styleUrls: ['./primengui-form.component.css'],
+  styleUrls: ['./primengui-form.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -31,7 +31,7 @@ export class PrimenguiFormComponent implements OnInit, OnChanges {
     @Input() labelWidth = '130px';
     
     @Input() layout = 4;
-    @Input() srcAddress = '';
+
     
     classMap: { [key: string]: boolean } = {};
     

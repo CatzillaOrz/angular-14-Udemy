@@ -3,7 +3,7 @@ import { Component, VERSION } from '@angular/core';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
@@ -13,9 +13,9 @@ export class AppComponent {
       key: 'additional-files',
       label: '附加文件',
       layout: '12',
-      type: 'inputText',
+      type: 'inputNumber',
       required: false,
-      value: 'taz.add.xml',
+      value: 0,
     },
     {
       key: 'net-file',
