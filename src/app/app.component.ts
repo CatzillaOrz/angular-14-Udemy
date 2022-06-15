@@ -34,7 +34,7 @@ export class AppComponent {
       value: 0,
       validateObj: {
         errmessage: '手机号码格式不正确',
-        validates: [Validators.required, Validators.pattern('^1[0-9]{10}$')]
+        validates: [Validators.required, Validators.pattern('^1[0-9]{10}$')],
       },
     },
     {
@@ -94,7 +94,7 @@ export class AppComponent {
         },
         {
           key: 'autocomplete',
-          label: '输入带出',
+          label: '自动补全',
           type: 'autoComplete',
           placeholder: '输入 x 或 1',
           suggestions: [],
