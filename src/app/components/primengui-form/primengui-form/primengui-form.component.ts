@@ -34,7 +34,7 @@ export class PrimenguiFormComponent implements OnInit, OnChanges {
 
   @Input() labelWidth = '130px';
 
-  @Input() layout = 4;
+  @Input() layout = 12;
 
   classMap: { [key: string]: boolean } = {};
 
@@ -104,9 +104,17 @@ export class PrimenguiFormComponent implements OnInit, OnChanges {
         }
       }
     };
-    this.controls.forEach((control: PrimenguiFormControl) => {
-      addControl(control);
-    });
+    if (this.isGroup) {
+      this.controls.forEach((control: PrimenguiFormGroup) => {
+        control.controls.forEach((con: PrimenguiFormControl) => {
+          addControl(con);
+        });
+      });
+    } else {
+      this.controls.forEach((control: PrimenguiFormControl) => {
+        addControl(control);
+      });
+    }
   }
 
   ptabviewChange(event, groupControls) {

@@ -7,12 +7,19 @@ import { HelloComponent } from './hello.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { ButtonModule } from 'primeng/button';
 import { PrnguiFormModule } from './components/primengui-form/primengui-form.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const CUSTOM_COMPONENT = [AlertComponent];
 const PRIMENG_MODULES = [ButtonModule];
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ...PRIMENG_MODULES, PrnguiFormModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ...PRIMENG_MODULES,
+    PrnguiFormModule,
+    BrowserAnimationsModule,
+  ],
   declarations: [AppComponent, HelloComponent, ...CUSTOM_COMPONENT],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
