@@ -29,7 +29,7 @@
         [placeholder]="control.placeholder"
         [hidden]="control.hidden"
         [required]="control.required"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -51,7 +51,7 @@
         [placeholder]="control.placeholder"
         [hidden]="control.hidden"
         [required]="control.required"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -75,7 +75,7 @@
         [placeholder]="control.placeholder"
         [hidden]="control.hidden"
         [required]="control.required"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -101,7 +101,7 @@
         [placeholder]="control.placeholder"
         [hidden]="control.hidden"
         [required]="control.required"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -125,7 +125,7 @@
         [placeholder]="control.placeholder"
         [hidden]="control.hidden"
         [required]="control.required"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -163,7 +163,7 @@
         [style.height.px]="control.height ? control.height : 100"
         [formControlName]="control.key"
         [placeholder]="control.placeholder"
-        disabled
+        [disabled]="control.disabled"
       ></textarea>
       <textarea
         *ngIf="!control.disabled"
@@ -188,7 +188,7 @@
         type="text"
         [formControlName]="control.key"
         [attr.placeholder]="control.placeholder"
-        disabled
+        [disabled]="control.disabled"
       />
       <input
         *ngIf="!control.disabled"
@@ -257,7 +257,7 @@
         [showCancelButton]="false"
         (onSelect)="onSelect($event, control.key)"
         accept="image/*"
-        maxFileSize="1000000"
+        maxFileSize="'1000000'"
         invalidFileSizeMessageSummary=""
         invalidFileSizeMessageDetail="文件应该小于1MB"
         invalidFileTypeMessageSummary=""

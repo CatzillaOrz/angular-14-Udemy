@@ -1,4 +1,8 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  NgModule,
+  CUSTOM_ELEMENTS_SCHEMA,
+  NO_ERRORS_SCHEMA,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FileUploadModule } from 'primeng/fileupload';
@@ -21,8 +25,10 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ChipsModule } from 'primeng/chips';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { PrimenguiFormComponent } from './primengui-form/primengui-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrimenguiFormControlComponent } from './primengui-form/primengui-form-control/primengui-form-control.component';
 
-const modules = [
+const MODULES = [
   ButtonModule,
   DropdownModule,
   AccordionModule,
@@ -43,11 +49,14 @@ const modules = [
   FileUploadModule,
 
   //form
-  PrimenguiFormComponent,
 ];
 
+const COMPONENTS = [PrimenguiFormComponent, PrimenguiFormControlComponent];
+
 @NgModule({
-  imports: [CommonModule],
-  declarations: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ...MODULES],
+  declarations: [...COMPONENTS],
+  exports: [...COMPONENTS],
 })
 export class PrnguiFormModule {}
