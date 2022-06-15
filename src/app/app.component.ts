@@ -125,7 +125,7 @@ export class AppComponent {
         },
         {
           key: 'chips',
-          label: '多值输入',
+          label: '多标签',
           type: 'chips',
         },
         {
@@ -176,13 +176,13 @@ export class AppComponent {
         { key: 'params', label: '选项参数', type: 'inputText' },
         {
           key: 'debugging',
-          label: '调试',
+          label: '测试',
           type: 'button',
           click: () => {
             console.log('debugging click');
           },
         },
-        { key: 'result', label: '返回数据', type: 'inputTextArea' },
+        { key: 'result', label: '输入区', type: 'inputTextArea' },
       ],
     },
   ];
