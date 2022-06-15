@@ -124,11 +124,6 @@ export class AppComponent {
           type: 'colorPicker',
         },
         {
-          key: 'editor',
-          label: '文本编辑',
-          type: 'editor',
-        },
-        {
           key: 'listbox',
           label: '列表选择',
           type: 'listbox',
@@ -144,14 +139,17 @@ export class AppComponent {
           type: 'inputMask',
           mask: '99-999999',
         },
-      ],
+      ]
     },
     {
       label: '属性',
       controls: [
-        { key: 'longitude', label: '经度', type: 'inputText' },
-        { key: 'latitude', label: '纬度', type: 'inputText' },
+        // { key: 'longitude', label: '经度', type: 'inputText' },
+        // { key: 'latitude', label: '纬度', type: 'inputText' },
       ],
+      controls_two: [
+        { key: 'listtow', label: 'listtow', type: 'inputText' },
+      ]
     },
     {
       label: '命令',
