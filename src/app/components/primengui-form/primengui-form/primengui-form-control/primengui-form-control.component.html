@@ -287,3 +287,11 @@
     />
   </ng-container>
 </div>
+
+<div
+  *ngIf="formGroup.get(control.key).errors && formGroup.get(control.key).dirty"
+  [style.margin-left]="labelWidth"
+  class="primengui-form-control-required"
+>
+  <smal> {{ errmessage(formGroup.get(control.key), control) }} </smal>
+</div>

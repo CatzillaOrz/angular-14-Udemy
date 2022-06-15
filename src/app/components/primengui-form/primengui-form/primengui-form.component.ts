@@ -99,6 +99,11 @@ export class PrimenguiFormComponent implements OnInit, OnChanges {
         }
         if (!this.formGroup.controls[control.key]) {
           let ctl = new FormControl(value);
+          if (control.validateObj && control.validateObj.validates) {
+            ctl = new FormControl(value, control.validateObj.validates);
+          } else {
+            ctl = new FormControl(value);
+          }
           if (control.disabled) ctl.disable();
           this.formGroup.addControl(control.key, ctl);
         }

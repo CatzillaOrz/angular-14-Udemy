@@ -1,4 +1,5 @@
 import { Component, VERSION, ViewChild } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { PrimenguiFormComponent } from './components/primengui-form/primengui-form/primengui-form.component';
 
 @Component({
@@ -31,6 +32,10 @@ export class AppComponent {
       inputType: 'number',
       required: true,
       value: 0,
+      validateObj: {
+        errmessage: '手机号码格式不正确',
+        validates: [Validators.required, Validators.pattern('^1[0-9]{10}$')]
+      },
     },
     {
       key: 'net-file',

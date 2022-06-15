@@ -89,4 +89,25 @@ export class PrimenguiFormControlComponent implements OnInit, OnChanges {
       [`primengui-form-control-${this.control.type.toLocaleLowerCase()}`]: true,
     };
   }
+
+  errmessage(i, control) {
+    if (i.errors) {
+      if (Object.keys(i.errors).includes('required')) {
+        return '必输';
+      }
+      if (
+        Object.keys(i.errors).includes('pattern') &&
+        control.type == 'spinner'
+      ) {
+        return '最多输入两位小数';
+      }
+      if (Object.keys(i.errors).includes('errmessage')) {
+        return i.errors.errmessage;
+      }
+      if (control && control.validateObj && control.validateObj.errmessage) {
+        return control.validateObj.errmessage;
+      }
+    }
+    return '';
+  }
 }
