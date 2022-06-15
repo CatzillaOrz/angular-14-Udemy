@@ -25,7 +25,7 @@ export class AppComponent {
   optFilesPropFormData = [
     {
       key: 'additional-files',
-      label: 'Number',
+      label: '附加文件',
       layout: '12',
       type: 'inputText',
       inputType: 'number',
@@ -52,7 +52,7 @@ export class AppComponent {
 
   optSpecFormData = [
     {
-      label: '测试1',
+      label: '路网',
       controls: [
         { key: 'num', label: '输入框', type: 'inputText' },
         {
@@ -147,14 +147,14 @@ export class AppComponent {
       ],
     },
     {
-      label: '测试',
+      label: '路由',
       controls: [
         { key: 'longitude', label: '付款', type: 'inputText' },
         { key: 'latitude', label: '首款', type: 'inputText' },
       ],
     },
     {
-      label: '测试3',
+      label: '附件',
       controls: [
         {
           key: 'command',
