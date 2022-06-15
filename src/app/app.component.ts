@@ -163,17 +163,17 @@ export class AppComponent {
       controls: [
         {
           key: 'command',
-          label: '下发命令',
+          label: '下拉选项',
           type: 'dropdown',
           options: [
-            { label: '命令1', value: 'ml1' },
-            { label: '命令2', value: 'ml2' },
+            { label: '选项1', value: 'ml1' },
+            { label: '选项2', value: 'ml2' },
           ],
           change: (value: any) => {
             console.log(value);
           },
         },
-        { key: 'params', label: '命令参数', type: 'inputText' },
+        { key: 'params', label: '选项参数', type: 'inputText' },
         {
           key: 'debugging',
           label: '调试',
