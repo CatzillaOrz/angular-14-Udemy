@@ -53,6 +53,49 @@ export class AppComponent {
       required: false,
       value: '100_car.rou.xml',
     },
+    {
+      key: 'object',
+      label: '对象类型',
+      type: 'tableInput',
+      labelWidth: '10%',
+      className: 'col-12',
+      value: [],
+      required: true,
+      hidden: false,
+      maxlength: 32,
+      columnKey: 'attrCode',
+      columns: [
+        { field: 'name', header: '属性名称', width: '100px', required: true },
+        {
+          field: 'displayName',
+          header: '展示名称',
+          width: '100px',
+          required: true,
+        },
+        {
+          field: 'type',
+          header: '属性类型',
+          type: 'dropdown',
+          options: [],
+          width: '100px',
+          required: true,
+        },
+        {
+          field: 'required',
+          header: '属性是否必填',
+          type: 'inputSwitch',
+          value: false,
+        },
+        { field: 'index', header: '索引', type: 'inputSwitch', value: false },
+        {
+          field: 'default',
+          header: '属性默认值',
+          type: 'defaultChange',
+          width: '115px',
+        },
+        { field: 'desc', header: '描述', width: '100px' },
+      ],
+    },
   ];
 
   optSpecFormData = [

@@ -285,6 +285,15 @@
       [src]="getImgSrc(control.key)"
       [ngStyle]="{ width: control.width, height: control.height }"
     />
+
+    <app-data-table-input
+      *ngSwitchCase="'tableInput'"
+      [formControlName]="control.key"
+      [columns]="control.columns"
+      [disabled]="control.disabled"
+      [columnKey]="control.columnKey"
+      (valid)="control.valid && control.valid($event)"
+    ></app-data-table-input>
   </ng-container>
 </div>
 

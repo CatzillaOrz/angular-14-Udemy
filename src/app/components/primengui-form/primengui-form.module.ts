@@ -28,6 +28,7 @@ import { PrimenguiFormComponent } from './primengui-form/primengui-form.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimenguiFormControlComponent } from './primengui-form/primengui-form-control/primengui-form-control.component';
 import { MessageService } from 'primeng/api';
+import { DataTableInputModule } from '../data-table-input/data-table-input.module';
 
 const MODULES = [
   ButtonModule,
@@ -48,6 +49,7 @@ const MODULES = [
   MultiSelectModule,
   TooltipModule,
   FileUploadModule,
+  DataTableInputModule,
 
   //form
 ];
