@@ -11,6 +11,8 @@ export class AppComponent {
   name = 'Angular ' + VERSION.major;
   rawData = '';
 
+  cols = [{ vin: 'vin', year: 'Vin', brand: 'brand', color: 'color' }];
+
   @ViewChild('opt', { static: false }) opt: PrimenguiFormComponent;
   @ViewChild('propForm', { static: false }) propForm: PrimenguiFormComponent;
 

@@ -8,9 +8,10 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { ButtonModule } from 'primeng/button';
 import { PrnguiFormModule } from './components/primengui-form/primengui-form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 const CUSTOM_COMPONENT = [AlertComponent];
-const PRIMENG_MODULES = [ButtonModule];
+const PRIMENG_MODULES = [ButtonModule, TableModule];
 
 @NgModule({
   imports: [
