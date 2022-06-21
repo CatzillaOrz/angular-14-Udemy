@@ -1,15 +1,28 @@
 import { Component, VERSION, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { PrimenguiFormComponent } from './components/primengui-form/primengui-form/primengui-form.component';
+import { TranslateService } from '@ngx-translate/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements Oninit {
+  constructor(
+    private config: PrimeNGConfig,
+    private translateService: TranslateService
+  ) {}
+
+  ngOninit() {
+    this.translateService.setDefaultLang('zh'); // 设置当前的默认语言类型
+    this.translateService.use('zh'); // 设置使用的语言类型
+  }
+
   name = 'Angular ' + VERSION.major;
   rawData = '';
+  valueDate;
 
   cols = [{ vin: 'vin', year: 'Vin', brand: 'brand', color: 'color' }];
 
