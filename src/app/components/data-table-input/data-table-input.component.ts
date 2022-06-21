@@ -46,7 +46,8 @@ export class DataTableInputComponent implements OnInit, ControlValueAccessor {
     if (!value || value.constructor !== Array) {
       value = [];
     }
-    this.value = value;
+    this.value = [...value];
+    console.log(value);
   }
   registerOnChange(fn: (value: any) => void): void {
     this.onChange = fn;

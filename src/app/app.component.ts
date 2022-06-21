@@ -25,9 +25,30 @@ export class AppComponent {
     );
   }
 
+  patchTabelVal() {
+    this.opt.formGroup.patchValue({
+      additional: '0',
+      net: '0',
+      route: '0',
+      object: [
+        {
+          name: 1,
+          displayName: 1,
+          type: false,
+          required: false,
+          index: false,
+          default: 0,
+          desc: 'help',
+        },
+      ],
+    });
+    this.opt.setFormGroup();
+    this.opt.cdr.detectChanges();
+  }
+
   optFilesPropFormData = [
     {
-      key: 'additional-files',
+      key: 'additional',
       label: '附加文件',
       layout: '12',
       type: 'inputText',
@@ -40,7 +61,7 @@ export class AppComponent {
       },
     },
     {
-      key: 'net-file',
+      key: 'net',
       label: '路网文件',
       layout: '12',
       type: 'inputText',
@@ -48,7 +69,7 @@ export class AppComponent {
       value: 'sumo.net.xml',
     },
     {
-      key: 'route-files',
+      key: 'route',
       label: '路由文件',
       layout: '12',
       type: 'inputText',
