@@ -10,7 +10,7 @@ import { PrnguiFormModule } from './components/primengui-form/primengui-form.mod
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
-import { TranslateModule } from '@ngx-translate/core';
+
 
 const CUSTOM_COMPONENT = [AlertComponent];
 const PRIMENG_MODULES = [ButtonModule, TableModule, CalendarModule];
@@ -21,8 +21,7 @@ const PRIMENG_MODULES = [ButtonModule, TableModule, CalendarModule];
     FormsModule,
     ...PRIMENG_MODULES,
     PrnguiFormModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot(),
+    BrowserAnimationsModule
   ],
   declarations: [AppComponent, HelloComponent, ...CUSTOM_COMPONENT],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
