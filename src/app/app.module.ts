@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
 
-
 const CUSTOM_COMPONENT = [AlertComponent];
 const PRIMENG_MODULES = [ButtonModule, TableModule, CalendarModule];
 
@@ -21,7 +20,7 @@ const PRIMENG_MODULES = [ButtonModule, TableModule, CalendarModule];
     FormsModule,
     ...PRIMENG_MODULES,
     PrnguiFormModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   declarations: [AppComponent, HelloComponent, ...CUSTOM_COMPONENT],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

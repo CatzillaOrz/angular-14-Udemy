@@ -6,7 +6,7 @@
   <label
     class="primengui-form-control-label"
     [style.width]="labelWidth"
-    [hidden]="control.hiddenLabel"
+    *ngIf="!control.hiddenLabel"
     class="{{ control.labelClass }}"
     >{{ control.label }}
     <i
