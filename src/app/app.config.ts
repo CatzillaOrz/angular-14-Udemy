@@ -80,7 +80,7 @@ export const optFilesPropFormData = [
     label: '对象类型',
     type: 'tableInput',
     labelWidth: '10%',
-    className: 'col-12',
+    layout: '12',
     value: [],
     required: true,
     hidden: false,
