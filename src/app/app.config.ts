@@ -41,7 +41,7 @@ export const canlendarZh = {
   ],
   today: '今天',
   clear: '清除',
-  dateFormat: 'yyyy-mm-dd',
+  dateFormat: 'yy-mm-dd',
   weekHeader: '周',
 };
 
@@ -114,7 +114,6 @@ export const optFilesPropFormData = [
         header: 'index',
         type: 'calendar',
         width: '100px',
-        
       },
       {
         field: 'default',
