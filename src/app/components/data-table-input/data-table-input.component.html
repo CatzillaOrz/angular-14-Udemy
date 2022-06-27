@@ -37,6 +37,8 @@
               *ngSwitchCase="'calendar'"
               [(ngModel)]="rowData[col.field]"
               dateFormat="dd.mm.yy"
+              [ngDefaultControl]
+              name="calendar"
             ></p-calendar>
             <ng-container *ngSwitchCase="'defaultChange'">
               <input
@@ -67,11 +69,6 @@
                 [(ngModel)]="rowData[col.field]"
               >
               </p-inputSwitch>
-              <p-calendar
-                *ngSwitchCase="rowData.type == 'calendar'"
-                [(ngModel)]="rowData[col.field]"
-                [dateFormat]="rowData.dateFormat"
-              ></p-calendar>
             </ng-container>
             <input
               *ngSwitchDefault

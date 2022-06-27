@@ -9,13 +9,22 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChipsModule } from 'primeng/chips';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { CalendarModule } from 'primeng/calendar';
 
-const modules = [InputTextModule, ButtonModule, TableModule, InputSwitchModule, ChipsModule, DropdownModule];
+const modules = [
+  InputTextModule,
+  ButtonModule,
+  TableModule,
+  InputSwitchModule,
+  ChipsModule,
+  CalendarModule,
+  DropdownModule,
+];
 
 @NgModule({
   declarations: [DataTableInputComponent],
   exports: [DataTableInputComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, ...modules],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DataTableInputModule { }
+export class DataTableInputModule {}
