@@ -109,7 +109,13 @@ export const optFilesPropFormData = [
         type: 'inputSwitch',
         value: false,
       },
-      { field: 'index', header: 'index', type: 'inputSwitch', value: false },
+      {
+        field: 'index',
+        header: 'index',
+        type: 'calendar',
+        width: '100px',
+        
+      },
       {
         field: 'default',
         header: 'default',

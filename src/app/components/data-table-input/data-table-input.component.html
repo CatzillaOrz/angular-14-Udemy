@@ -33,6 +33,11 @@
               (ngModelChange)="valueChange($event, col.field)"
             >
             </p-inputSwitch>
+            <p-calendar
+              *ngSwitchCase="'calendar'"
+              [(ngModel)]="rowData[col.field]"
+              dateFormat="dd.mm.yy"
+            ></p-calendar>
             <ng-container *ngSwitchCase="'defaultChange'">
               <input
                 *ngIf="rowData.type == 'integer'"
@@ -62,8 +67,11 @@
                 [(ngModel)]="rowData[col.field]"
               >
               </p-inputSwitch>
-              <!-- <primengui-datetime *ngIf="rowData.type == 'timestamp'" [(ngModel)]="rowData[col.field]">
-                        </primengui-datetime> -->
+              <p-calendar
+                *ngSwitchCase="rowData.type == 'calendar'"
+                [(ngModel)]="rowData[col.field]"
+                [dateFormat]="rowData.dateFormat"
+              ></p-calendar>
             </ng-container>
             <input
               *ngSwitchDefault
