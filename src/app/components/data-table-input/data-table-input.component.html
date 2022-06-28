@@ -1,5 +1,11 @@
 <div class="primengui-table-input">
-  <p-table #dt [lazy]="true" [columns]="columns" [value]="value">
+  <p-table
+    #dt
+    [lazy]="true"
+    [columns]="columns"
+    [value]="value"
+    responsiveLayout="scroll"
+  >
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [style.width]="col.width">
