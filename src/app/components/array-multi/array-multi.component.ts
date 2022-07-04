@@ -68,4 +68,8 @@ export class ArrayMultiComponent implements OnInit, ControlValueAccessor {
   onValueChange() {
     this.setValeus();
   }
+
+  add() {
+    this.keyValues = [...this.keyValues, { key: '', value: '' }];
+  }
 }
