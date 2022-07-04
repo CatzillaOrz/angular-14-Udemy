@@ -1,7 +1,7 @@
 <div class="array-multi">
   <ul>
     <li
-      *ngFor="let item of keyValues; index as i"
+      *ngFor="let item of keyValues; let i = index"
       class="flex justify-content-center"
     >
       <input type="text" pInputText [(ngModel)]="item.key" placeholder="key" />
@@ -15,7 +15,7 @@
         pButton
         type="button"
         icon="pi pi-trash"
-        (click)="del(index)"
+        (click)="del(i)"
       ></button>
     </li>
   </ul>
