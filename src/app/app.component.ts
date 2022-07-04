@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
       additional: '0',
       net: '0',
       route: '0',
-      arraySimple: [{ lable: 'name', value: 'alice' }],
+      arraySimple: [{ label: 'name', value: 'alice' }],
       object: [
         {
           name: 1,

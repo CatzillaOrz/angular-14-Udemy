@@ -71,9 +71,10 @@ export const optFilesPropFormData = [
   },
   {
     key: 'arraySimple',
-    lable: '名称',
+    label: '名称',
     layout: '12',
-    type: 'arraySimple'
+    type: 'arraySimple',
+    value: [{ label: 'name', value: 'alice' }],
   },
   {
     key: 'route',
