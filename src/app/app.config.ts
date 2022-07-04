@@ -70,6 +70,13 @@ export const optFilesPropFormData = [
     value: 'sumo.net.xml',
   },
   {
+    key: 'arraySimple',
+    lable: '名称',
+    layout: '12',
+    type: 'arraySimple',
+    // vlue: [{ lable: 'name', value: 'Alice' }],//ERRORError: No value accessor for form control with name: 'arraySimple'
+  },
+  {
     key: 'route',
     label: '路由文件',
     layout: '12',

@@ -31,6 +31,7 @@ export interface arraySimpleValue {
 export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   constructor() {}
 
+  @Input()
   value: arraySimpleValue[] = [];
   onChange: (value: any) => void;
   onTouch: () => void;
@@ -38,18 +39,17 @@ export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   @Input()
   disabled: boolean = false;
 
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
+  writeValue(value: any): void {
+    if (!value || value.constructor !== Array) value = [];
+    this.value = value;
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange(fn);
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onTouch();
   }
-  setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
-  }
+  setDisabledState?(isDisabled: boolean): void {}
 
   ngOnInit() {}
 }

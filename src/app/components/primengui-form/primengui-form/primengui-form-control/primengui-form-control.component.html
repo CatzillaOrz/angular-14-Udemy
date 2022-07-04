@@ -293,13 +293,13 @@
       [columnKey]="control.columnKey"
       (valid)="control.valid && control.valid($event)"
     ></app-data-table-input>
+
+    <app-array-simple
+      *ngSwitchCase="'arraySimple'"
+      [formControlName]="control.key"
+    ></app-array-simple>
   </ng-container>
 </div>
-
-<app-array-simple
-  *ngSwitchCase="'arraySimple'"
-  [formControlName]="control.key"
-></app-array-simple>
 
 <div
   *ngIf="formGroup.get(control.key).errors && formGroup.get(control.key).dirty"
