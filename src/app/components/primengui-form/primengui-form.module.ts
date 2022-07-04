@@ -30,6 +30,7 @@ import { PrimenguiFormControlComponent } from './primengui-form/primengui-form-c
 import { MessageService } from 'primeng/api';
 import { DataTableInputModule } from '../data-table-input/data-table-input.module';
 import { ArraySimpleModule } from '../array-simple/array-simple.module';
+import { ArrayMultiModule } from '../array-multi/array-multi.module';
 
 const MODULES = [
   ButtonModule,
@@ -54,6 +55,7 @@ const MODULES = [
 
   //form
   ArraySimpleModule,
+  ArrayMultiModule
 ];
 
 const COMPONENTS = [PrimenguiFormComponent, PrimenguiFormControlComponent];

@@ -77,6 +77,12 @@ export const optFilesPropFormData = [
     value: [{ label: 'name', value: 'alice' }],
   },
   {
+    key: 'arrayMulti',
+    label: '个人信息',
+    layout: '12',
+    type: 'arrayMulti'
+  },
+  {
     key: 'route',
     label: '路由文件',
     layout: '12',

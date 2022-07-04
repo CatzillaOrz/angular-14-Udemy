@@ -48,6 +48,9 @@ export class AppComponent implements OnInit {
         { label: 'nameB', value: 'bob' },
         { label: 'nameC', value: 'cat' },
       ],
+      arrayMulti: {
+        Alice: 19
+      },
       object: [
         {
           name: 1,

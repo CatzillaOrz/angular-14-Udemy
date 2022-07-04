@@ -1,0 +1,10 @@
+<div class="array-multi">
+  <ul>
+    <li *ngFor="let item; in: keyValues; index as i">
+      <label> key</label>
+      <input type="text" pInputText [(ngModel)]="item.key" />
+      <label> value</label>
+      <input type="text" pInputText [(ngModel)]="item.value" />
+    </li>
+  </ul>
+</div>
