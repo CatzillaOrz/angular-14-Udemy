@@ -34,7 +34,7 @@ export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   @Input()
   value: arraySimpleValue[] = [];
   onChange: (value: any) => void;
-  onTouch: () => void;
+  onTouch: (e) => void;
 
   @Input()
   disabled: boolean = false;
@@ -47,7 +47,7 @@ export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
     this.onChange(fn);
   }
   registerOnTouched(fn: any): void {
-    this.onTouch();
+    this.onTouch(fn);
   }
   setDisabledState?(isDisabled: boolean): void {}
 
