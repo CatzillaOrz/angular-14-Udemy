@@ -11,6 +11,12 @@
         [(ngModel)]="item.value"
         placeholder="value"
       />
+      <button
+        pButton
+        type="button"
+        icon="pi pi-trash"
+        (click)="del(index)"
+      ></button>
     </li>
   </ul>
   <button pButton type="button" icon="pi pi-plus" (click)="add()"></button>
