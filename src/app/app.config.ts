@@ -73,8 +73,7 @@ export const optFilesPropFormData = [
     key: 'arraySimple',
     lable: '名称',
     layout: '12',
-    type: 'arraySimple',
-    // vlue: [{ lable: 'name', value: 'Alice' }],//ERRORError: No value accessor for form control with name: 'arraySimple'
+    type: 'arraySimple'
   },
   {
     key: 'route',

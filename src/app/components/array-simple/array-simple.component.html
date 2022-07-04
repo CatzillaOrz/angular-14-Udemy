@@ -1,13 +1,9 @@
+test
 <div class="array-simple">
   <ul>
     <li *ngFor="let item of value; index as i">
       <label [style.width]="item.labelWidth">{{ item.label }}</label>
-      <input
-        pInputText
-        type="text"
-        [(ngModel)]="item.value"
-        [ngDefaultControl]
-      />
+      <input pInputText type="text" [(ngModel)]="item.value" />
     </li>
   </ul>
 </div>

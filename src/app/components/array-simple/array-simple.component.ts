@@ -31,7 +31,6 @@ export interface arraySimpleValue {
 export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   constructor() {}
 
-  @Input()
   value: arraySimpleValue[] = [];
   onChange: (value: any) => void;
   onTouch: (e) => void;
@@ -40,14 +39,15 @@ export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   disabled: boolean = false;
 
   writeValue(value: any): void {
+    console.log(value);
     if (!value || value.constructor !== Array) value = [];
     this.value = value;
   }
   registerOnChange(fn: any): void {
-    this.onChange(fn);
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    this.onTouch(fn);
+    this.onTouch = fn;
   }
   setDisabledState?(isDisabled: boolean): void {}
 
