@@ -296,6 +296,11 @@
   </ng-container>
 </div>
 
+<app-array-simple
+  *ngSwitchCase="'arraySimple'"
+  [formControlName]="control.key"
+></app-array-simple>
+
 <div
   *ngIf="formGroup.get(control.key).errors && formGroup.get(control.key).dirty"
   [style.margin-left]="labelWidth"

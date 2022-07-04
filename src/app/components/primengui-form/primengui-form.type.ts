@@ -47,6 +47,7 @@ export type PrimenguiFormControlType =
   | 'inputMask'
   | 'inputMulti'
   | 'inputArray'
+  | 'arraySimple'
   | 'image'
   | 'treeGroup'
   | 'fileUpload'

@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimenguiFormControlComponent } from './primengui-form/primengui-form-control/primengui-form-control.component';
 import { MessageService } from 'primeng/api';
 import { DataTableInputModule } from '../data-table-input/data-table-input.module';
-
+import { ArraySimpleModule } from '../array-simple/array-simple.module';
 
 const MODULES = [
   ButtonModule,
@@ -53,12 +53,10 @@ const MODULES = [
   DataTableInputModule,
 
   //form
+  ArraySimpleModule,
 ];
 
-const COMPONENTS = [
-  PrimenguiFormComponent,
-  PrimenguiFormControlComponent,
-];
+const COMPONENTS = [PrimenguiFormComponent, PrimenguiFormControlComponent];
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

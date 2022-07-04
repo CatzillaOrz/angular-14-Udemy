@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ArraySimpleComponent } from './array-simple.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext/inputtext';
 
-const CUSTOM_COMPONENT = [ArraySimpleComponent]
-
+const CUSTOM_COMPONENT = [ArraySimpleComponent];
+const PRIMENG_MODULES = [InputTextModule];
 
 @NgModule({
-  DeviceAcceleration: [...CUSTOM_COMPONENT]
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+  declarations: [...CUSTOM_COMPONENT],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ...PRIMENG_MODULES],
 })
-export class ArraySimpleModule { }
+export class ArraySimpleModule {}
