@@ -2,7 +2,11 @@ import { Component, OnInit, VERSION, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { PrimenguiFormComponent } from './components/primengui-form/primengui-form/primengui-form.component';
 import { PrimeNGConfig } from 'primeng/api';
-import { canlendarZh, optFilesPropFormData, optSpecFormData } from './app.config';
+import {
+  canlendarZh,
+  optFilesPropFormData,
+  optSpecFormData,
+} from './app.config';
 
 @Component({
   selector: 'my-app',
@@ -10,15 +14,13 @@ import { canlendarZh, optFilesPropFormData, optSpecFormData } from './app.config
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private config: PrimeNGConfig
-  ) {}
+  constructor(private config: PrimeNGConfig) {}
 
   ngOnInit() {
     this.config.setTranslation(canlendarZh);
   }
 
-  name = 'Angular ' + VERSION.major;
+  name = 'My Angular ' + VERSION.major + 'FormBuilder';
   rawData = '';
   valueDate;
 
@@ -58,7 +60,6 @@ export class AppComponent implements OnInit {
   }
 
   optFilesPropFormData = optFilesPropFormData;
-  
 
   optSpecFormData = optSpecFormData;
   setDisabled(keys: string[], value = true) {
