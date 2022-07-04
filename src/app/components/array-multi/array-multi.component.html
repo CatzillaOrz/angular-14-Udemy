@@ -1,10 +1,17 @@
 <div class="array-multi">
   <ul>
-    <li *ngFor="let item; in: keyValues; index as i">
-      <label> key</label>
-      <input type="text" pInputText [(ngModel)]="item.key" />
-      <label> value</label>
-      <input type="text" pInputText [(ngModel)]="item.value" />
+    <li
+      *ngFor="let item of keyValues; index as i"
+      class="flex justify-content-center"
+    >
+      <input type="text" pInputText [(ngModel)]="item.key" placeholder="key" />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="item.value"
+        placeholder="value"
+      />
     </li>
   </ul>
+  <button pButton icon="pi pi-plus"></button>
 </div>

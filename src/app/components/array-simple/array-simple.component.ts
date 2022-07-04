@@ -39,7 +39,6 @@ export class ArraySimpleComponent implements OnInit, ControlValueAccessor {
   disabled: boolean = false;
 
   writeValue(value: any): void {
-    console.log(value);
     if (!value || value.constructor !== Array) value = [];
     this.value = value;
   }
