@@ -50,7 +50,7 @@ export const canlendarZh = {
 export const optFilesPropFormData = [
   {
     key: 'additional',
-    label: '附加文件',
+    label: '手机号',
     layout: '12',
     type: 'inputText',
     inputType: 'number',
@@ -63,7 +63,7 @@ export const optFilesPropFormData = [
   },
   {
     key: 'net',
-    label: '路网文件',
+    label: '昵称',
     layout: '12',
     type: 'inputText',
     required: false,
@@ -71,22 +71,22 @@ export const optFilesPropFormData = [
   },
   {
     key: 'arraySimple',
-    label: '名称',
+    label: '固定值',
     layout: '12',
     type: 'arraySimple',
     value: [{ label: 'name', value: 'alice' }],
   },
   {
     key: 'arrayMulti',
-    label: '个人信息',
+    label: '键值对',
     layout: '12',
     type: 'arrayMulti',
   },
   {
     key: 'route',
-    label: '路由文件',
+    label: '生日',
     layout: '12',
-    type: 'inputText',
+    type: 'calendar',
     required: false,
     value: '100_car.rou.xml',
   },
