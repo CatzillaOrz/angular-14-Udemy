@@ -23,8 +23,8 @@
       let-columns="columns"
       let-rowIndex="rowIndex"
     >
-      <tr [pSelectableRow]="rowData">
-        <td *ngFor="let col of columns" [ngSwitch]="col.field" pEditableColumn>
+      <tr>
+        <td *ngFor="let col of columns" [ngSwitch]="col.field">
           <ng-container [ngSwitch]="col.type">
             <p-dropdown
               *ngSwitchCase="'dropdown'"
@@ -32,6 +32,7 @@
               [(ngModel)]="rowData[col.field]"
               placeholder="请选择"
               (ngModelChange)="dropdownChange(rowData)"
+              [appendTo]="'body'"
             ></p-dropdown>
             <p-inputSwitch
               *ngSwitchCase="'inputSwitch'"
@@ -76,6 +77,13 @@
                 [(ngModel)]="rowData[col.field]"
               >
               </p-inputSwitch>
+              <p-calendar
+                *ngIf="rowData.type == 'date'"
+                [(ngModel)]="rowData[col.field]"
+                dateFormat="yy-mm-dd"
+                [ngDefaultControl]
+                [appendTo]="'body'"
+              ></p-calendar>
             </ng-container>
             <input
               *ngSwitchDefault

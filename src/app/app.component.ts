@@ -49,13 +49,13 @@ export class AppComponent implements OnInit {
         { label: 'nameC', value: 'cat' },
       ],
       arrayMulti: {
-        Alice: 19
+        Alice: 19,
       },
       object: [
         {
           name: 1,
           displayName: 1,
-          type: false,
+          type: 'boolean',
           required: false,
           index: false,
           default: 0,

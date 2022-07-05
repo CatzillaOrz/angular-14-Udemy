@@ -80,7 +80,7 @@ export const optFilesPropFormData = [
     key: 'arrayMulti',
     label: '个人信息',
     layout: '12',
-    type: 'arrayMulti'
+    type: 'arrayMulti',
   },
   {
     key: 'route',
@@ -114,7 +114,13 @@ export const optFilesPropFormData = [
         field: 'type',
         header: 'type',
         type: 'dropdown',
-        options: [{ label: 'A-a', value: 'A-a' }],
+        options: [
+          { label: 'boolean', value: 'boolean' },
+          { label: 'number', value: 'number' },
+          { label: 'integer', value: 'integer' },
+          { label: 'date', value: 'date' },
+          { label: 'text', value: 'text' },
+        ],
         width: '100px',
         required: true,
       },
@@ -133,7 +139,7 @@ export const optFilesPropFormData = [
       },
       {
         field: 'default',
-        header: 'default',
+        header: 'defaultChange',
         type: 'defaultChange',
         width: '115px',
       },
